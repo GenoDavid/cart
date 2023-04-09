@@ -2,9 +2,14 @@ import React, { useState } from 'react'
 import './Login.css'
 import { RxCross2 } from "react-icons/rx";
 import { CiLock } from "react-icons/ci";
+import { useDispatch, useSelector } from 'react-redux';
+import { open } from '../../feature/user';
+import CreatAccount from '../creatacount/CreatAccount';
 
 const Login = ({ isOpen, setIsopen }) => {
-
+    const { isopen } = useSelector((state) => state.editor);
+    const dispatch = useDispatch();
+    console.log(isopen);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [login, setLogin] = useState(true);
@@ -17,24 +22,24 @@ const Login = ({ isOpen, setIsopen }) => {
                     <div className='left-container'>
                         {
                             login ? (
-                                <p className='login-singup' onClick={() => setLogin(false)}>Login</p>
+                                <p className='login-singup' onClick={() => dispatch(open(true))}>Login</p>
                             ) : (
-                                <p className='login-singup' onClick={() => setLogin(true)}>Register</p>
+                                <p className='login-singup' onClick={() => dispatch(open(false))}>Register</p>
                             )
                         }
                     </div>
 
-                    {login ? (<div>
+                    {isopen ? (<div>
                         <input type='email' placeholder='@ Email address' className='email-input' value={email} onChange={(e) => setEmail(e.target.value)} />
                         <input type='password' placeholder=' Password' className='password-input' value={password} onChange={(e) => setPassword(e.target.value)} />
                         <p className='forgot'>Forgot Password?</p>
                     </div>) : (<>
-                        <h1 style={{ color: 'black' }}>Say Hello</h1>
+                        <CreatAccount />
                     </>)
 
                     }
 
-                    {login ? (
+                    {isopen ? (
                         <button className='loginbtn'>Login</button>
                     ) : (
                         <button className='loginbtn'>Singup</button>
