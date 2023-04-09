@@ -1,0 +1,89 @@
+.navbar-container {
+    height: 56px;
+    background: var(---amazon-orange);
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    color: white;
+}
+
+.logo {
+    /* background-color: black; */
+    width: 100px;
+}
+
+.navbar {
+    /* background-color: aqua; */
+    max-width: 1244px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px 124px;
+}
+
+.navbar-search {
+    display: flex;
+    justify-content: space-between;
+    max-width: 344px;
+    width: 100%;
+}
+
+.navbar-srechbox {
+    padding: 10px;
+    width: 100%;
+    border: none;
+    outline: none;
+}
+
+.search-btn {
+    height: 36px;
+    width: 44px;
+    border: none;
+    color: var(---amazon-orange);
+    background-color: white;
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 4px 12px 0 8px;
+}
+
+.login-btn {
+    padding: 7px 12px;
+    background-color: white;
+    color: var(---amazon-orange);
+    font-weight: 700;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.navbar-seller {
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.serach-more {
+    font-size: 13px;
+    cursor: pointer;
+    position: relative;
+}
+
+.more-down {
+    position: absolute;
+    top: 10px;
+    padding: 0 2px;
+}
+
+.navbar-cart {
+    /* background-color: black; */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.cart {
+    font-size: 15px;
+    padding: 0 5px;
+    color: white;
+}
