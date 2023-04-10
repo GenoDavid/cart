@@ -4,7 +4,7 @@ import "./Card.css";
 const Card = () => {
     return (
         <div>
-            Card
+            <h1 style={{ color: 'black' }}>Cart</h1>
         </div>
     )
 }

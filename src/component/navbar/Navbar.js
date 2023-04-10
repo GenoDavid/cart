@@ -1,51 +1,49 @@
 import React, { useState } from 'react';
-import './Navbar.css'
+import classes from './navbar.module.css'
 import { Link } from 'react-router-dom';
 import image from '../../image/log.png'
 import { FaSearch } from 'react-icons/fa'
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import { ImCart } from 'react-icons/im'
-import Login from '../login/Login';
-import CreatAccount from '../creatacount/CreatAccount';
+import { useDispatch } from 'react-redux';
+import { login } from '../../feature/user';
 
 const Navbar = () => {
 
-    const [isOpen, setIsopen] = useState(false)
+    const dispatch = useDispatch()
 
     return (
         <>
-            <div className='navbar-container'>
-                <div className='navbar'>
+            <div className={classes.navbarcontainer}>
+                <div className={classes.navbar}>
                     <Link to={'/'}>
-                        <img src={image} alt='amazonlog' className='logo' />
+                        <img src={image} alt='amazonlog' className={classes.logo} />
                     </Link>
-                    <div className='navbar-search'>
-                        <input type='text' placeholder='products,brands,ect' className='navbar-srechbox' />
-                        <button className='search-btn'><FaSearch /></button>
+                    <div className={classes.navbarsearch}>
+                        <input type='text' placeholder='products,brands,ect' className={classes.navbarsrechbox} />
+                        <button className={classes.searchbtn}><FaSearch /></button>
                     </div>
-                    <button className='login-btn' onClick={() => setIsopen(true)}>Login</button >
 
-                    <div className='navbar-seller'>
+                    <div className={classes.navbarseller}>
                         <h3>Become a seller</h3>
                     </div>
 
-                    <div className='serach-more'>
+                    <div className={classes.serachmore}>
                         <h3>more
-                            <i className='more-down'>
+                            <i className={classes.moredown}>
                                 <MdKeyboardArrowDown />
                             </i>
                         </h3>
                     </div>
 
-                    <div className='navbar-cart'>
-                        <div className='cart-icon'>
+                    <div className={classes.navbarcart}>
+                        <div className={classes.carticon}>
                             <ImCart />
-                            <Link to={'Cart'} className='cart'>Cart</Link>
+                            <Link to={'card'} className={classes.cart}>Cart</Link>
                         </div>
                     </div>
+                    <button className={classes.loginbtn} onClick={() => dispatch(login(false))}>Logout</button >
                 </div>
-                <Login isOpen={isOpen} setIsopen={setIsopen} />
-                <CreatAccount isOpen={isOpen} setIsopen={setIsopen} />
             </div >
         </>
     )
