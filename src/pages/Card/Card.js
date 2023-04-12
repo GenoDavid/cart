@@ -1,12 +1,26 @@
 import React from 'react'
 import "./Card.css";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { remove } from '../../feature/image';
 
 const Card = () => {
-    const { total } = useSelector(state => state.image)
+    const { total, save } = useSelector(state => state.image)
+    const dispatch = useDispatch
     return (
         <div>
-            <h1>{total}</h1>
+            {
+                save.map((item, index) => {
+                    return (
+                        <div key={index}>
+                            <p>{item.price}</p>
+                            <button >+</button>
+                            <button >-</button>
+                            <button onClick={() => dispatch(remove(item))}>delete</button>
+                        </div>
+                    )
+                })
+            }
+            <h1>Total:{total}</h1>
         </div>
     )
 }

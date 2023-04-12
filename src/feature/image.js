@@ -72,6 +72,7 @@ const initialState = {
             CategoryName: "Top Mirrorless Cameras",
             Brand: "Canon,Sony",
             id: 1,
+            qu: 1,
             price: 50000
         },
         {
@@ -80,6 +81,7 @@ const initialState = {
             CategoryName: "Premium PowerBanks",
             Brand: "Mi & Realme",
             id: 2,
+            qu: 1,
             price: 70000
         },
         {
@@ -87,6 +89,8 @@ const initialState = {
                 "https://rukminim1.flixcart.com/image/200/200/printer/j/j/y/hp-laserjet-m1005-multifunction-original-imadxhzpeb9qbrfg.jpeg?q=70",
             CategoryName: "Printers",
             Brand: "HP",
+            id: 3,
+            qu: 1,
             price: 10000
         },
         {
@@ -94,6 +98,8 @@ const initialState = {
                 "https://rukminim1.flixcart.com/image/200/200/ks7tuvk0/gimbal/v/z/7/0-43-om4-se-dji-original-imag5u6rgsdh6k4g.jpeg?q=70",
             CategoryName: "Top Deals of Camera Accessories",
             Brand: "Tripods,Gimbals,Bags",
+            id: 4,
+            qu: 1,
             price: 90000
         },
         {
@@ -101,6 +107,8 @@ const initialState = {
                 "https://rukminim1.flixcart.com/image/200/200/xif0q/monitor/9/b/n/va249he-23-8-inch-eye-care-fhd-full-hd-23-8-90lm02w1-b01310-asus-original-imaghfhmyvwz9x53.jpeg?q=70",
             CategoryName: "Asus Monitors",
             Brand: "Top Rated",
+            id: 5,
+            qu: 1,
             price: 500000
         },
         {
@@ -108,6 +116,8 @@ const initialState = {
                 "https://rukminim1.flixcart.com/image/200/200/hair-dryer/c/t/g/philips-hp8100-46-original-imaemymzuxrnzfjb.jpeg?q=70",
             CategoryName: "Best of Hair Dryers",
             Brand: "Philips,Nova,Havells & more",
+            id: 6,
+            qu: 1,
             price: 500
         },
         {
@@ -115,6 +125,8 @@ const initialState = {
                 "https://rukminim1.flixcart.com/image/200/200/kmp7ngw0/monitor/j/z/h/s2721hn-27-py0df-dell-original-imagfjphuywuh2a7.jpeg?q=70",
             CategoryName: "Moniters",
             Brand: "Dell",
+            id: 7,
+            qu: 1,
             price: 50
         },
     ],
@@ -131,11 +143,17 @@ export const imageSlice = createSlice({
             state.save = [...state.save, action.payload]
             state.total += action.payload.price
         },
+        remove: (state, action) => {
+            const { price, id, qu } = action.payload
+            // const find = state.save.findIndex(item => item.id === id)
+            // state.save.splice(find, 1)
+            console.log(id);
+        },
         view: (state, action) => {
             state.view = action.payload
         }
     }
 })
-export const { savecart, view } = imageSlice.actions
+export const { savecart, view, remove } = imageSlice.actions
 
 export default imageSlice.reducer;  

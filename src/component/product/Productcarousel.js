@@ -5,7 +5,7 @@ import Card from '../../pages/Card/Card'
 import { savecart } from '../../feature/image'
 import { Link } from 'react-router-dom'
 
-const Productcarousel = ({ all, id }) => {
+const Productcarousel = ({ all }) => {
     const dispatch = useDispatch()
     // console.log(all);
     return (
@@ -22,9 +22,6 @@ const Productcarousel = ({ all, id }) => {
                 <p className={classes.shope}>Shope Now</p>
                 <button className={classes.btn} onClick={() => dispatch(savecart(all))}> Add to Cart</button>
                 <button><Link to={`productdetail/${all.id}`}>View</Link > </button>
-            </div>
-            <div className={classes.rs}>
-                <Card />
             </div>
         </div>
     )
