@@ -1,10 +1,12 @@
 import React from 'react'
 import "./Card.css";
+import { useSelector } from 'react-redux';
 
 const Card = () => {
+    const { total } = useSelector(state => state.image)
     return (
         <div>
-            <h1 style={{ color: 'black' }}>Cart</h1>
+            <h1>{total}</h1>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-.form-box {
+.formbox {
     max-width: 500px;
     /* background: #f1f7fe; */
     overflow: hidden;
@@ -27,7 +27,7 @@
 }
 
 /*Inputs box*/
-.form-container {
+.formcontainer {
     overflow: hidden;
     border-radius: 8px;
     background-color: #fff;
@@ -46,7 +46,7 @@
     padding: 8px 15px;
 }
 
-.form-section {
+.formsection {
     padding: 16px;
     font-size: .85rem;
     background-color: var(---amazon-orange);
