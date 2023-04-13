@@ -1,11 +1,12 @@
 import React from 'react'
 import "./Card.css";
 import { useDispatch, useSelector } from 'react-redux';
-import { remove } from '../../feature/image';
+import { decrese, increase, remove } from '../../feature/image';
+
 
 const Card = () => {
     const { total, save } = useSelector(state => state.image)
-    const dispatch = useDispatch
+    const dispatch = useDispatch()
     return (
         <div>
             {
@@ -13,8 +14,8 @@ const Card = () => {
                     return (
                         <div key={index}>
                             <p>{item.price}</p>
-                            <button >+</button>
-                            <button >-</button>
+                            <button onClick={() => dispatch(increase(item))}>+</button>
+                            <button disabled={item.qu === 1 ? true : false} onClick={() => dispatch(decrese(item))}>-</button>
                             <button onClick={() => dispatch(remove(item))}>delete</button>
                         </div>
                     )

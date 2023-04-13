@@ -135,6 +135,7 @@ const initialState = {
     view: []
 };
 
+
 export const imageSlice = createSlice({
     name: 'image',
     initialState,
@@ -144,16 +145,32 @@ export const imageSlice = createSlice({
             state.total += action.payload.price
         },
         remove: (state, action) => {
-            const { price, id, qu } = action.payload
-            // const find = state.save.findIndex(item => item.id === id)
-            // state.save.splice(find, 1)
-            console.log(id);
+            const { id, price, qu } = action.payload
+            const find = state.save.findIndex(item => item.id === id)
+            state.save.splice(find, 1)
+            state.total = state.total - (price * qu)
         },
-        view: (state, action) => {
-            state.view = action.payload
+        increase: (state, action) => {
+            const { id, price } = action.payload
+            const add = state.save.find(item => item.id === id)
+            if (add) {
+                state.total += price
+                add.qu += 1
+            }
+            console.log(add);
+        },
+        decrese: (state, action) => {
+            const { id, price } = action.payload
+            const sub = state.save.find(item => item.id === id)
+            if (sub) {
+                state.total -= price
+                sub.qu -= 1
+            }
         }
     }
-})
-export const { savecart, view, remove } = imageSlice.actions
+}
+)
+
+export const { savecart, decrese, remove, increase } = imageSlice.actions
 
 export default imageSlice.reducer;  

@@ -45,7 +45,6 @@ const Home = () => {
                                     // categoryname={item.CategoryName}
                                     // brand={item.Brand}
                                     // price={item.price}
-                                    id={index}
                                     all={item}
                                 />
                             )
