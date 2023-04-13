@@ -41,10 +41,6 @@ const Home = () => {
                         Electronics.map((item, index) => {
                             return (
                                 <Productcarousel key={index}
-                                    // imgsrc={item.ImgSrc}
-                                    // categoryname={item.CategoryName}
-                                    // brand={item.Brand}
-                                    // price={item.price}
                                     all={item}
                                 />
                             )
