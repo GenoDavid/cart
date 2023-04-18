@@ -35,7 +35,7 @@ const Login = () => {
 
                     {
                         isopen ? (<></>) : (
-                            <button className={classes.onclick} onClick={() => dispatch(login(true))}>
+                            <button type='submit' className={classes.onclick} onClick={() => dispatch(login(true))}>
                                 Login
                                 <div class={classes.arrowwrapper}>
                                     <div class={classes.arrow}></div>
