@@ -1,5 +1,5 @@
 import React from 'react'
-import "./Card.css";
+import classes from './Card.module.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { decrese, increase, remove } from '../../feature/image';
 
@@ -14,9 +14,9 @@ const Card = () => {
                     return (
                         <div key={index}>
                             <p>{item.price}</p>
-                            <button onClick={() => dispatch(increase(item))}>+</button>
-                            <button disabled={item.qu === 1 ? true : false} onClick={() => dispatch(decrese(item))}>-</button>
-                            <button onClick={() => dispatch(remove(item))}>delete</button>
+                            <button className={classes.btn} onClick={() => dispatch(increase(item))}>+</button>
+                            <button className={classes.btn} disabled={item.qu === 1 ? true : false} onClick={() => dispatch(decrese(item))}>-</button>
+                            <button className={classes.delet} onClick={() => dispatch(remove(item))}>delete</button>
                         </div>
                     )
                 })

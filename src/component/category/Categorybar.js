@@ -11,5 +11,4 @@ const Categorybar = ({ imagesrc, categoryname }) => {
         </div>
     )
 }
-
 export default Categorybar;

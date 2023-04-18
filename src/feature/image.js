@@ -144,12 +144,6 @@ export const imageSlice = createSlice({
             state.save = [...state.save, action.payload]
             state.total += action.payload.price
         },
-        remove: (state, action) => {
-            const { id, price, qu } = action.payload
-            const find = state.save.findIndex(item => item.id === id)
-            state.save.splice(find, 1)
-            state.total = state.total - (price * qu)
-        },
         increase: (state, action) => {
             const { id, price } = action.payload
             const add = state.save.find(item => item.id === id)
@@ -157,7 +151,7 @@ export const imageSlice = createSlice({
                 state.total += price
                 add.qu += 1
             }
-            console.log(add);
+            // console.log(add);
         },
         decrese: (state, action) => {
             const { id, price } = action.payload
@@ -166,7 +160,13 @@ export const imageSlice = createSlice({
                 state.total -= price
                 sub.qu -= 1
             }
-        }
+        },
+        remove: (state, action) => {
+            const { id, price, qu } = action.payload
+            const find = state.save.findIndex(item => item.id === id)
+            state.save.splice(find, 1)
+            state.total = state.total - (price * qu)
+        },
     }
 }
 )

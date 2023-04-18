@@ -42,6 +42,7 @@ const Navbar = () => {
                             <Link to={'card'} className={classes.cart}>Cart</Link>
                         </div>
                     </div>
+
                     <button className={classes.loginbtn} onClick={() => dispatch(login(false))}>Logout</button >
                 </div>
             </div >

@@ -33,7 +33,6 @@ const Login = () => {
                             <p className={classes.forgot}>Forgot Password?</p></>)
                     }
 
-
                     {
                         isopen ? (<></>) : (
                             <button className={classes.onclick} onClick={() => dispatch(login(true))}>

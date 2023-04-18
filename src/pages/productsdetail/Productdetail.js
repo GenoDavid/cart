@@ -9,7 +9,7 @@ const Productdetail = () => {
     const find = Electronics.find(items => items.id === parseInt(params.id))
     return (
         <div>
-            <img src={find.ImgSrc} />
+            <img src={find.ImgSrc} alt='img' />
             <h3>{find.CategoryName}</h3>
             <h4>{find.Brand}</h4>
             <h1>{find.price}</h1>
